@@ -19,6 +19,16 @@ app.get("/usuarios", (req, res) => {
   });
 });
 
+app.get("/usuarios/reportes", (req, res) => {
+  Usuario.findAllReports(req.query, (err, data) => {
+    if (err) {
+      res.status(500).send(new Error(err));
+    } else {
+      res.send(data);
+    }
+  });
+});
+
 app.get("/usuarios/:id", (req, res) => {
   Usuario.findById(req.params.id, (err, data) => {
     if (err) {

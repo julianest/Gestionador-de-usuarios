@@ -26,6 +26,22 @@ Usuario.findAll = (queryParams, cb)=>{
     });
 }
 
+
+Usuario.findAllReports =(queryParams, cb)=>{
+  let query = `SELECT nombre, fnacimiento FROM usuarios`;
+  console.log(query)
+  sql.query(query, (err, res)=>{
+    if(err){
+      console.log("Err:", err);
+      cb(err, null);
+      return;
+      }
+    cb(null, res);
+  })
+}
+
+
+
 Usuario.findById =(id, cb)=>{
   sql.query(`SELECT * FROM usuarios WHERE id =${id}`, (err, res)=>{
     if(err){
