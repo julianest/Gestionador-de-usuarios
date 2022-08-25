@@ -28,7 +28,7 @@ Usuario.findAll = (queryParams, cb)=>{
 
 
 Usuario.findAllReports =(queryParams, cb)=>{
-  let query = `SELECT nombre, fnacimiento FROM usuarios`;
+  let query = `SELECT nombre, fnacimiento FROM usuarios ORDER BY fnacimiento`;
   console.log(query)
   sql.query(query, (err, res)=>{
     if(err){
